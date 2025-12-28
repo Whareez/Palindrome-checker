@@ -6,7 +6,7 @@ const resultDisplay = document.getElementById("result");
 palindromeForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const reversedWord = inputString.value.split("").reverse().join("");
+  const reversedWord = inputString.value.toLowerCase().split("").reverse().join("");
 
   if (inputString.value === null) {
     // alert("Insert a valid word");
