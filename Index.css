@@ -104,7 +104,38 @@ input[type="submit"]:active{
   border:1px solid rgba(99,102,241,0.06);
   color:#111827;
   font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  transition: background 180ms ease, border-color 180ms ease, color 160ms ease, transform 120ms ease;
 }
+
+/* Result states */
+.result.success, #result.success{
+  background: linear-gradient(180deg, #effdf4 0%, #f1fff6 100%);
+  border-color: rgba(30, 150, 80, 0.12);
+  color: #065f46; /* dark green */
+  box-shadow: 0 8px 20px rgba(6,95,70,0.06);
+}
+.result.error, #result.error{
+  background: linear-gradient(180deg, #fff6f6 0%, #fff9f9 100%);
+  border-color: rgba(220, 38, 38, 0.12);
+  color: #7f1d1d; /* dark red */
+  box-shadow: 0 8px 20px rgba(127,29,29,0.06);
+}
+
+/* Small status indicator */
+.result::before, #result::before{
+  content: '';
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  display:inline-block;
+  flex:0 0 10px;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.16);
+}
+.result.success::before, #result.success::before{ background:#16a34a; box-shadow:none; }
+.result.error::before, #result.error::before{ background:#ef4444; box-shadow:none; }
 
 /* Responsive tweaks */
 @media (max-width:420px){
