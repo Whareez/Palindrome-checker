@@ -3,26 +3,21 @@ const submit = document.getElementById("submit");
 const palindromeForm = document.getElementById("palindromeForm");
 const resultDisplay = document.getElementById("result");
 
-palindromeForm.addEventListener("submit", function (e) {
+palindromeForm.addEventListener("submit", function (e){
   e.preventDefault();
 
-  const reversedWord = inputString.value.toLowerCase().split("").reverse().join("");
+  const normalizedInput = inputString.value.toLowerCase();
+  const reversedWord = normalizedInput.split("").reverse().join("");
 
-  if (inputString.value === null) {
-    // alert("Insert a valid word");
-    // console.log("Insert a valid word");
-    resultDisplay.textContent = "Insert a valid word";
+  if (!normalizedInput){
+    resultDisplay.textContent = "Please enter a valid word.";
+  // } else{
+  //   const reversedWord = normalizedInput.split("").reverse().join("");
+  // }
   } else {
-    if (inputString.value === reversedWord) {
-      //   alert(`${inputString.value} is a palindrome!`);
-      //   console.log("Palindrome confirmed");
-      resultDisplay.textContent = `${inputString.value} is a palindrome!`;
+    if (normalizedInput === reversedWord) {
+      resultDisplay.textContent = `${normalizedInput} is a palindrome!`;
     } else {
-      //   alert(`${inputString.value} is not a palindrome.`);
-      //   console.log("Not a palindrome");
-      resultDisplay.textContent = `${inputString.value} is not a palindrome.`;
+      resultDisplay.textContent = `${normalizedInput} is not a palindrome.`;
     }
-  }
-});
-
-console.log("Node is running");
+  }});
